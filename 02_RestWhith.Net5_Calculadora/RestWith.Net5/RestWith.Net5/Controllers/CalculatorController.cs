@@ -32,8 +32,8 @@ namespace RestWith.Net5.Controllers
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                var sum = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
-                return Ok(sum.ToString());
+                var sub = ConvertToDecimal(firstNumber) - ConvertToDecimal(secondNumber);
+                return Ok(sub.ToString());
             }
 
             return BadRequest("Invalid Input");
@@ -44,8 +44,8 @@ namespace RestWith.Net5.Controllers
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                var sum = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
-                return Ok(sum.ToString());
+                var mult = ConvertToDecimal(firstNumber) * ConvertToDecimal(secondNumber);
+                return Ok(mult.ToString());
             }
 
             return BadRequest("Invalid Input");
@@ -56,8 +56,8 @@ namespace RestWith.Net5.Controllers
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                var sum = ConvertToDecimal(firstNumber) / ConvertToDecimal(secondNumber);
-                return Ok(sum.ToString());
+                var div = ConvertToDecimal(firstNumber) / ConvertToDecimal(secondNumber);
+                return Ok(div.ToString());
             }
 
             return BadRequest("Invalid Input");
@@ -68,8 +68,21 @@ namespace RestWith.Net5.Controllers
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
-                var sum = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber) + ConvertToDecimal(thirdNumber)) / 3;
-                return Ok(sum.ToString());
+                var average = (ConvertToDecimal(firstNumber) + ConvertToDecimal(secondNumber) + ConvertToDecimal(thirdNumber)) / 3;
+                return Ok(average.ToString());
+            }
+
+            return BadRequest("Invalid Input");
+        }
+
+
+        [HttpGet("square-root/{firstNumber}")]
+        public IActionResult GetSquareRoot(string firstNumber)
+        {
+            if (IsNumeric(firstNumber))
+            {
+                var squareRoot = Math.Sqrt((double)ConvertToDecimal(firstNumber));
+                return Ok(squareRoot.ToString());
             }
 
             return BadRequest("Invalid Input");
