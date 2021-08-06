@@ -1,9 +1,9 @@
 ﻿using RestWith.Net5.Model;
 using System.Collections.Generic;
 
-namespace RestWith.Net5.Services.Implementations
+namespace RestWith.Net5.Repository
 {
-    public interface IPersonService
+    public interface IPersonRepository
     {
         Person Create(Person person);
 
@@ -14,5 +14,7 @@ namespace RestWith.Net5.Services.Implementations
         Person FindByID(long id);
 
         Person Update(Person person);
+
+        bool Exists(long id);
     }
 }
