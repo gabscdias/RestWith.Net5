@@ -2,9 +2,9 @@
 
 namespace RestWithASPNETUdemy.Data.Converter.Contract
 {
-    public interface IParser<O, D>
+    public interface IParser<Origin, Destination>
     {
-        D Parse(O origin);
-        List<D> Parse(List<O> origin);
+        Destination Parse(Origin origin);
+        List<Destination> Parse(List<Origin> origin);
     }
 }
